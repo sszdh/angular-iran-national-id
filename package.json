@@ -8,7 +8,7 @@
     "type": "git",
     "url": "git://github.com/sszdh/angular-iran-national-id.git"
   },
-  "main": "src/angularIranNationalId.js",
+  "main": "",
   "scripts": {
     "gulp": "gulp"
   },
