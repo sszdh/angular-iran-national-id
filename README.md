@@ -2,6 +2,10 @@
 
 AngularJS 1.x directive that will validate an IRANIAN national ID and impose relevant character and structure limits.
 
+## Live Demo
+
+View a live demo [here](https://rawgit.com/sszdh/angular-iran-national-id/master/example/index.html)!
+
 ## Installation
 
 ```
@@ -47,7 +51,3 @@ Failing one of the validation rules will cause the input to become invalid and g
 ## Todos
 
 * Format code in human-readable style (ex: xxx-xxxxxx-x)
-
-## Example & Demo
-
-* Use `example/index.html` to see a working example.
