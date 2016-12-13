@@ -28,8 +28,14 @@ describe('islet-iran-national-id directive', function() {
     expect(form.nationalid.$valid).toBe(false);
   });
 
-  it('should not pass with equal digitss', function() {
+  it('should not pass with equal digits', function() {
     form.nationalid.$setViewValue('5555555555');
+    expect(scope.model.nationalid).toBeUndefined();
+    expect(form.nationalid.$valid).toBe(false);
+  });
+
+  it('should not pass with leading 3-zero digits', function() {
+    form.nationalid.$setViewValue('0003425673');
     expect(scope.model.nationalid).toBeUndefined();
     expect(form.nationalid.$valid).toBe(false);
   });

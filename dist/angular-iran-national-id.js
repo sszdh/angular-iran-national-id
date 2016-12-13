@@ -30,6 +30,7 @@ function iranNationalId() {
 
   function link(scope, element, attrs, ctrl) {
     var regexEqualDigits =  /^\D*(\d)(?:\D*|\1)*$/;
+    var regexZeroLeadingDigits =  /^000/;
 
     if (!ctrl) {
       console.warn('ngModelCtrl does not exist!');
@@ -81,8 +82,13 @@ function iranNationalId() {
       var checkDigit = digitArray.pop();
       var sigma = 0;
 
-      // Prevent same digits code
+      // Prevent same digits
       if(regexEqualDigits.test(code)) {
+        return false;
+      }
+
+      // Prevent leading 3-zero digits
+      if(regexZeroLeadingDigits.test(code)) {
         return false;
       }
 
