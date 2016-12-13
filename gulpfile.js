@@ -44,9 +44,11 @@ function testTask(done) {
   new karma({
     configFile: __dirname + '/karma.conf.js',
     singleRun: true
-  }, done).start();
+  }, function() {
+    done();
+  }).start();
 }
 
 function watchTask() {
-  gulp.watch('src/*.js', ['test', 'js']);
+  gulp.watch(['src/**/*.js', 'test/**/*.spec.js'], ['test', 'js']);
 }
