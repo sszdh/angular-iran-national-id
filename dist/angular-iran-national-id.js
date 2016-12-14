@@ -1,5 +1,5 @@
 /**
- * angular-iran-national-id v1.2.0
+ * angular-iran-national-id v1.2.1
  * AngularJS 1.x directive that will validate an IRANIAN national ID and impose relevant character and structure limits
  * @link https://github.com/sszdh/angular-iran-national-id
  * @author Soheil Samadzadeh <s.samadzadeh@islet.ir (http://www.islet.ir)
@@ -51,29 +51,6 @@ function iranNationalId() {
       if (e.which < 48 || e.which > 57) {
         e.preventDefault();
       }
-    }
-
-    function input(val) {
-      // If val is falsey (undefined, empty string, 10> length, etc)...
-      if (!val || val.length > 10) {
-        // Set the field validity to true since it should be the responsibility of 'required' & 'maxlenght' to stop blank & 10> entries
-        ctrl.$setValidity('iranNationalId', true);
-        return val;
-      }
-
-      var validationResult = true;
-
-      // Check the Code validation with algorithm
-      validationResult = check(val);
-
-      // Set validity of field (will be displayed as class 'ng-valid-ip-address' or 'ng-invalid-ip-address')
-      ctrl.$setValidity('iranNationalId', validationResult);
-
-      // Replace the input value with the cleaned value in the view
-      ctrl.$setViewValue(val);
-      ctrl.$render();
-
-      return val;
     }
 
     // National Code check algorithm

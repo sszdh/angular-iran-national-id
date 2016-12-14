@@ -40,29 +40,6 @@ function iranNationalId() {
       }
     }
 
-    function input(val) {
-      // If val is falsey (undefined, empty string, 10> length, etc)...
-      if (!val || val.length > 10) {
-        // Set the field validity to true since it should be the responsibility of 'required' & 'maxlenght' to stop blank & 10> entries
-        ctrl.$setValidity('iranNationalId', true);
-        return val;
-      }
-
-      var validationResult = true;
-
-      // Check the Code validation with algorithm
-      validationResult = check(val);
-
-      // Set validity of field (will be displayed as class 'ng-valid-ip-address' or 'ng-invalid-ip-address')
-      ctrl.$setValidity('iranNationalId', validationResult);
-
-      // Replace the input value with the cleaned value in the view
-      ctrl.$setViewValue(val);
-      ctrl.$render();
-
-      return val;
-    }
-
     // National Code check algorithm
     function check(code) {
       var digitArray = code.split('');
