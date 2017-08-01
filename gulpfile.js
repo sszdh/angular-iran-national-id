@@ -19,7 +19,7 @@ var banner = ['/**',
   ' * <%= pkg.description %>',
   ' * @link <%= pkg.homepage %>',
   ' * @author <%= pkg.author %>',
-  ' * @example <<input ng-model="nationalid" maxlength="10" min-length="10" islet-iran-national-id />',
+  ' * @example <input ng-model="nationalid" maxlength="10" min-length="10" islet-iran-national-id />',
   ' * @license under <%= pkg.license %>',
   ' */',
   ''].join('\n');

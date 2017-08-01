@@ -1,6 +1,6 @@
 {
   "name": "angular-iran-national-id",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "homepage": "https://github.com/sszdh/angular-iran-national-id",
   "author": "Soheil Samadzadeh <s.samadzadeh@islet.ir (http://www.islet.ir)",
   "description": "AngularJS 1.x directive that will validate an IRANIAN national ID and impose relevant character and structure limits",
@@ -29,7 +29,11 @@
   "bugs": {
     "url": "https://github.com/sszdh/angular-iran-national-id/issues"
   },
+  "dependencies": {
+    "angular": "^1.5.9"
+  },
   "devDependencies": {
+    "angular-mocks": "^1.5.9",
     "gulp": "^3.9.1",
     "gulp-cli": "^1.2.2",
     "gulp-concat": "^2.6.1",
