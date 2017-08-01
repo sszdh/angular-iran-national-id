@@ -8,7 +8,7 @@ var concat = require('gulp-concat');
 var minify = require('gulp-minify');
 var karma = require('karma').Server;
 
-var pkg = JSON.parse(fs.readFileSync('./package.json'));
+
 var src = [
   'src/module.js',
   'src/directive.js'
@@ -24,12 +24,14 @@ var banner = ['/**',
   ' */',
   ''].join('\n');
 
-gulp.task('js', jsTask);
-gulp.task('watch', watchTask);
 gulp.task('test', testTask);
-gulp.task('default', ['test', 'js', 'watch']);
+gulp.task('js', ['test'], jsTask);
+gulp.task('watch', ['js'], watchTask);
+gulp.task('default', ['watch']);
 
 function jsTask() {
+  var pkg = JSON.parse(fs.readFileSync('./package.json'));
+
   gulp.src(src)
     .pipe(concat(pkg.name + '.js'))
     .pipe(iife())
@@ -50,5 +52,5 @@ function testTask(done) {
 }
 
 function watchTask() {
-  gulp.watch(['src/**/*.js', 'test/**/*.spec.js'], ['test', 'js']);
+  gulp.watch(['*.json', 'src/**/*.js', 'test/**/*.spec.js'], ['js']);
 }
