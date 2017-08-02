@@ -27,6 +27,7 @@ var banner = ['/**',
 gulp.task('test', testTask);
 gulp.task('js', ['test'], jsTask);
 gulp.task('watch', ['js'], watchTask);
+gulp.task('build', ['js']);
 gulp.task('default', ['watch']);
 
 function jsTask() {
