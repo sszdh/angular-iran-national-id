@@ -38,7 +38,7 @@
   </header>
   <div class="container">
 
-    <form action="" name="myForm" novalidate> 
+    <form method="POST" name="myForm" novalidate ng-submit="myForm.$valid && vm.submit()"> 
       <div class="input-group input-group-lg" ng-class="{ 'has-success' : myForm.national_id.$valid, 'has-error' : myForm.national_id.$invalid }">
         <span class="input-group-addon"><strong>کُدملی:</strong></span>
         

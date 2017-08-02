@@ -8,6 +8,11 @@
   function MainController() {
     var vm = this;
 
+    vm.submit = submit;
     vm.national_id = '2286224331';
+
+    function submit() {
+      console.info('Form submitted successfully. ' + vm.national_id);
+    }
   }
 })();
