@@ -35,7 +35,7 @@ function iranNationalId() {
 
     function keyPress(e) {
       // Stop key press from propagating if the character code is not number...
-      if (e.which < 48 || e.which > 57) {
+      if(e.which != 13 && (e.which < 48 || e.which > 57)) {
         e.preventDefault();
       }
     }

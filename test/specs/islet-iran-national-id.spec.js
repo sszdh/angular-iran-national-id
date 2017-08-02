@@ -4,18 +4,26 @@ describe('islet-iran-national-id directive', function() {
 
   beforeEach(module('angular-iran-national-id'));
 
-  beforeEach(inject(function($rootScope, $compile) {
+  beforeEach(inject(function($rootScope, $compile, $timeout) {
+    scope = $rootScope;
+    timeout = $timeout;
+    scope.model = { nationalid: '0000000000' };
     element = angular.element(
       '<form name="form"><input name="nationalid" ng-model="model.nationalid" maxlength="10" min-length="10" islet-iran-national-id /></form>'
     );
 
-    scope = $rootScope;
-    scope.model = { nationalid: '0000000000' };
     $compile(element)(scope);
+
     scope.$digest();
     form = scope.form;
   }));
 
+  var triggerKeyDown = function(element, keyCode) {
+    angular.element(element).triggerHandler({type:"keydown", which:keyCode});
+  };
+
+  // UNITS
+  
   it('should pass with correct national ID', function() {
     form.nationalid.$setViewValue('2286224331');
     expect(scope.model.nationalid).toEqual('2286224331');

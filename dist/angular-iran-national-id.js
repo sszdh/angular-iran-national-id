@@ -1,5 +1,5 @@
 /**
- * angular-iran-national-id v1.2.3
+ * angular-iran-national-id v1.2.4
  * AngularJS 1.x directive that will validate an IRANIAN national ID and impose relevant character and structure limits
  * @link https://github.com/sszdh/angular-iran-national-id
  * @author Soheil Samadzadeh <s.samadzadeh@islet.ir (http://www.islet.ir)
@@ -48,7 +48,7 @@ function iranNationalId() {
 
     function keyPress(e) {
       // Stop key press from propagating if the character code is not number...
-      if (e.which < 48 || e.which > 57) {
+      if(e.which != 13 && (e.which < 48 || e.which > 57)) {
         e.preventDefault();
       }
     }
