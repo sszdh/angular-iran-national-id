@@ -1,0 +1,9 @@
+language: node_js
+before_script:
+  - npm install -g gulp-cli
+script: gulp build
+deploy:
+  api_key:
+    secure: Yf8sDlhOxWqgdAz6IW/YNISeJmS1k9egqBcuXsnvjq2DNQsZFMvqoiLCmximXNy68NsxswGS6yJB856Xi6sEZQZ8c2Y2jeE+BqbKeHDw2HreEuecwZkRx7Zf66hfFU0SFvhruqYR/ea/rwMPJLjWrNIuPn5lm73/SnJI2ZxlxeirxJAnE9zPNtfH9O8QXsG80vKWk+M6r785bg0hBwJcN80/0KMcz8UkLLUuSYJ5sJozCKZwhlXmRvHXIHeEPj7IqAsmDs/qkWZwoDJotDyrdt0sbrA2nI7SOvh02ikuBKGDo9Y8aORQqyMXR+5KCi9W53GBcrN2szVAPVPo1gPfyxsVm9c4DHVUCye4Q7CtqxrSKRs5vb5MsJZHqlUu0QLUwq7AwioWw11mnXe/72N3Dx1mNiCIBmrhUkDWvgDHyx7YVz+uJhLayyjs+CtKx4n9+e7/5iKqqQSX8EBaW8FfV3y+Mjo3HOxZsyVia+9jFMqiTSZEF04kEdqmJzeLHsc3SS/qifXk1/7GzZWZSV/t3qLj6V1YKuDp2+iRSzEoiWscGg+oJdVquu5keJPUgWsSQ3ADN5NvsWGdAoL+jbhrVUtXqjvDRDFbV0WI2CCw98HYn/BGc6rteidntMc7VTOoAFCA4uu3dv0/+XaeZ19HWlOiHGMtmwsqfp+8tDRnYCw=
+  email: s.samadzadeh@gmail.com
+  provider: npm
