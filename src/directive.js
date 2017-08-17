@@ -15,29 +15,35 @@ function iranNationalId() {
   };
   return directive;
 
-  function link(scope, element, attrs, ctrl) {
-    var regexEqualDigits =  /^\D*(\d)(?:\D*|\1)*$/;
-    var regexZeroLeadingDigits =  /^000/;
+  function link(scope, element, attrs, ngModelCtrl) {
+    var REGEX_DIGITS = /[^0-9]/g;
+    var REGEX_EQUAL_DIGITS =  /^\D*(\d)(?:\D*|\1)*$/;
+    var REGEX_LEADING_ZERO =  /^000/;
 
-    if (!ctrl) {
+    if (!ngModelCtrl) {
       console.warn('ngModelCtrl does not exist!');
       return;
     }
 
-    // Attach key evaluator to the element keypress event
-    element.bind('keypress', keyPress);
+    // Push custom parser to pipline
+    ngModelCtrl.$parsers.push(parseToNumber);
 
     // Push custom validator to model validators collection
-    ctrl.$validators.iranNationalId = function(modelValue, viewValue) {
+    ngModelCtrl.$validators.iranNationalId = function(modelValue, viewValue) {
       var value = modelValue || viewValue;
       return check(value);
     };
 
-    function keyPress(e) {
-      // Stop key press from propagating if the character code is not number...
-      if(e.which != 13 && (e.which < 48 || e.which > 57)) {
-        e.preventDefault();
+    // Parse the view value to number only.
+    function parseToNumber(value) {
+      var transformedValue = value.replace(REGEX_DIGITS, '');
+
+      if (transformedValue !== value) {
+          ngModelCtrl.$setViewValue(transformedValue);
+          ngModelCtrl.$render();
       }
+
+      return transformedValue;
     }
 
     // National Code check algorithm
@@ -47,12 +53,12 @@ function iranNationalId() {
       var sigma = 0;
 
       // Prevent same digits
-      if(regexEqualDigits.test(code)) {
+      if(REGEX_EQUAL_DIGITS.test(code)) {
         return false;
       }
 
       // Prevent leading 3-zero digits
-      if(regexZeroLeadingDigits.test(code)) {
+      if(REGEX_LEADING_ZERO.test(code)) {
         return false;
       }
 
